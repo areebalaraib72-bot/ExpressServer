@@ -1,20 +1,15 @@
-// importing express library from express module
-
-import express from "express";
-
-//developing an express application
+const express = require("express");
 
 const app = express();
-
-//listening to the port 5500
 const port = 5500;
 
-//defining a route for the root url
+app.use(express.json());
 
-app.get("/",(req, res)  =>{
-res.send("hello! coders ");
+app.post("/user", (req, res) => {
+    console.log(req.body);
+    res.send("user data recieved!");
 });
-//starting the server and listening on the sepecified port
-app.listen(port, () =>{
-    console.log(`server is running on http://localhost:${port}`);
+
+app.listen(port, () => {
+    console.log(`server is running on port ${port}`);
 });
